@@ -9,9 +9,24 @@
   background-color: yellow;
 }
 
-/* FOLLOWERS COLUMN */
+/* HOME */
+.home-container {
+  display: flex;
+}
+/* followers column */
 .followers-column {
   background-color: red;
   width: 500px;
   height: 800px;
+}
+/* feed */
+.feed {
+  background-color: white;
+  width: 500px;
+}
+/* suggested box */
+.suggested-box {
+  background-color: blue;
+  width: 400px;
+  height: 400px;
 }
