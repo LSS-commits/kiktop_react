@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Upload from './pages/Upload';
 
@@ -20,9 +20,9 @@ const App = () => {
 
 export default App;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
