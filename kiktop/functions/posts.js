@@ -23,15 +23,15 @@ exports.handler = async function (event, context, callback) {
         
         return {
             statusCode: 200,
-            body: JSON.stringify(response)
-        }
+            body: JSON.stringify(Object.keys(response).map((i) => response[i]))
+        };
 
     } catch (error) {
-        console.error(error)
+        console.error(error);
         return {
             statusCode: 500,
             body: JSON.stringify(error)
-        }
-    }
+        };
+    };
 
 }

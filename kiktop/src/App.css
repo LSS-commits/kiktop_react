@@ -1,18 +1,143 @@
 /***** GLOBAL STYLES *****/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
 
-.App {
+:root {
+  --color1: #737373; /* grey */
+  --color2: #fe2c55; /* red */
+  --color3: #E3E3E4; /* dirty white */
+  --color4: #7FFFD4; /* aquamarine green */
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+
   text-align: center;
+  word-wrap: break-word;
 }
 
-/* HEADER */
-.header {
-  background-color: yellow;
+/* .App {
+  text-align: center;
+} */
+
+h1, h2, h3, p {
+  line-height: 0;
 }
 
-/* HOME */
-.home-container {
+h2, h3 {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 60px; 
+}
+
+h2 {
+  font-size: 20px; 
+}
+
+h3 {
+  font-size: 15px; 
+}
+
+p {
+  color: var(--color1);
+  font-size: 12px;
+}
+
+/* TODO: where are the hrs??? */
+hr {
+  display: block; 
+  height: 1px;
+  border: 0; 
+  border-top: 1px solid var(--color3);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/* to add space between div elements instead of handling margin and padding */
+.break {
+  height: 10px;
+}
+
+/* TODO: remove flex direct and margin? */
+.section {
   display: flex;
+  flex-direction: row;
+  margin: 0;
 }
+
+.container {
+  display: flex;
+  /* TODO: remove flex d */
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+/* HEADER COMPONENT */
+.header {
+  height: 60px;
+  width: 100%;
+  border-bottom: solid 1px var(--color3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 129px;
+  height: 40px; /* or 140px */
+  /* tiktok logo */
+  /* background-image: url('https://i.imgur.com/ZZ75Unh.png'); */
+  background-image: url('https://i.imgur.com/XGyCawP.jpeg');
+  background-size: 129px;
+  margin: 5px;
+
+  /* filter: invert(); */
+}
+
+.upload-logo {
+  width: 30px;
+  height: 25px;
+  margin-top: 15px;
+  background-image: url('https://i.imgur.com/0MtQ9RF.png');
+  background-size: 30px;
+}
+
+.personal {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color1);
+  border-radius: 20px;
+  margin: 5px 20px 0 20px;
+}
+
+
+/* HOME COMPONENT */
+
+/* suggested accounts */
+.suggested-box {
+  min-width: 320px;
+  height: 600px;
+  padding: 10px;
+}
+
+.suggested {
+  width: 280px;
+  height: 350px;
+  border: 1px solid var(--color3);
+  border-radius: 10px;
+  padding: 20px 15px;
+}
+
+
+
+
+
+
 /* followers column */
 .followers-column {
   background-color: red;
@@ -24,9 +149,48 @@
   background-color: white;
   width: 500px;
 }
-/* suggested box */
-.suggested-box {
-  background-color: blue;
+
+
+/* UPLOAD COMPONENT */
+/* TODO: check style of this component */
+.upload-page {
+  margin-left: 30px;
+}
+
+.image-upload {
   width: 400px;
-  height: 400px;
+  height: 230px;
+  background-color: rgb(22,24,35,0.03);
+  border-radius: 10px;
+}
+
+.input-section {
+  margin: 10px;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-section {
+  margin-left: 20px;
+  margin-top: 60px;
+}
+
+label {
+  font-size: 40px;
+  line-height: 0; 
+}
+
+input {
+  height: 45px;
+  width: 500px;
+  font-size: 35px;
+  margin-top: -20px;
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  float: right;
 }

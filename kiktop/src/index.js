@@ -17,7 +17,7 @@ const App = () => {
       </Switch>
     </HashRouter>
   );
-}
+};
 
 export default App;
 
