@@ -45,7 +45,6 @@ p {
   font-size: 12px;
 }
 
-/* TODO: where are the hrs??? */
 hr {
   display: block; 
   height: 1px;
@@ -55,6 +54,10 @@ hr {
 
 .bold {
   font-weight: 600;
+}
+
+.red {
+  color: var(--color2);
 }
 
 /* to add space between div elements instead of handling margin and padding */
@@ -116,7 +119,7 @@ hr {
 }
 
 
-/* HOME COMPONENT */
+/* HOME PAGE */
 
 /* suggested accounts */
 .suggested-box {
@@ -133,25 +136,46 @@ hr {
   padding: 20px 15px;
 }
 
-
-
-
-
-
-/* followers column */
+/* FOLLOWERS COLUMN COMPONENT */
 .followers-column {
-  background-color: red;
-  width: 500px;
-  height: 800px;
+  min-width: 230px;
+  height: 600px;
+  padding: 10px;
 }
+
+.followers-section {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0 30px 0;
+}
+
+.home-button {
+  width: 30px;
+  height: 29px;
+  background-image: url('https://i.imgur.com/Q582Dp0.png');
+  background-size: 30px;
+  margin-right: 15px;
+}
+
+.following {
+  width: 30px;
+  height: 29px;
+  background-image: url('https://i.imgur.com/Aq7L3jv.png');
+  background-size: 30px;
+  margin-right: 15px;
+}
+
+
+
+
 /* feed */
-.feed {
+/* .feed {
   background-color: white;
   width: 500px;
-}
+} */
 
 
-/* UPLOAD COMPONENT */
+/* UPLOAD PAGE */
 /* TODO: check style of this component */
 .upload-page {
   margin-left: 30px;
@@ -193,4 +217,70 @@ button {
   height: 30px;
   width: 100px;
   float: right;
+}
+
+/* CARD COMPONENTS */
+.user-profile {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 25px;
+  margin-right: 15px;
+}
+
+/* card component */
+.card {
+  border-bottom: 1px solid rgb(227,227,228);
+  width: 500px;
+  height: 600px;
+}
+.user-info {
+  display: flex;
+  flex-direction: row;
+  width: 412px;
+}
+.username {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.video {
+  width: 270px;
+  border-radius: 15px;
+  margin-left: 70px;
+}
+.social-tag {
+  margin: 0 20px 0 5px;
+}
+.socials {
+  margin-left: 70px;
+}
+.follow-button {
+  border: 1px solid #fe2c55;
+  border-radius: 3px;
+  width: 88px;
+  height: 16px;
+  color: #fe2c55;
+  font-weight: 600;
+  padding: 2px 0 3px;
+  text-align: center;
+  font-size: 14px;
+}
+.followed-button {
+  border: 1px solid rgb(227,227,228);
+  border-radius: 3px;
+  width: 88px;
+  height: 16px;
+  font-weight: 600;
+  padding: 2px 0 3px;
+  text-align: center;
+  font-size: 14px;
+}
+/* minicard component */
+.minicard {
+  justify-content: space-between;
+}
+
+/* microcard component */
+.minicard, .microcard {
+  margin: 10px 0 0 0;
 }

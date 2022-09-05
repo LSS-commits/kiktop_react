@@ -15,7 +15,7 @@ const Card = () => {
                     <div>
                         <div className="section">
                             <h3 className="bold">username</h3>
-                            <p className="name">name</p>
+                            <p className="username">name</p>
                             <p>{timeStampReformat}</p>
                         </div>
                         <p>{user.caption}</p>
