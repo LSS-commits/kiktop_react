@@ -1,40 +1,44 @@
 import React from 'react';
-import { FaHeart, FaCommentDots, FaShareSquare } from 'react-icons/fa';
+import { MdFavoriteBorder} from 'react-icons/md';
+import { BsChatDots } from 'react-icons/bs';
+import { FaRegShareSquare } from 'react-icons/fa';
 // import { IconContext } from 'react-icons';
 
 // card = posts feed
 
-const Card = () => {
+const Card = ({ user }) => {
+    // console.log('user', user);
+
 
     return (
         <div className="card">
             <div className="break" />
             <div className="section">
                 <div className="user-info">
-                    <img className="user-profile" src={''} width={'100%'} alt="user profile img"/>
+                    <img className="user-profile" src={user.avatar} width={'100%'} alt="user profile img"/>
                     <div>
                         <div className="section">
-                            <h3 className="bold">username</h3>
-                            <p className="username">name</p>
-                            <p>{timeStampReformat}</p>
+                            <h3 className="bold" title={user.romanized_name}>{user.name}</h3>
+                            <p className="username">@{user.username}</p>
+                            <p>{user.timestamp}</p>
                         </div>
                         <p>{user.caption}</p>
                     </div>
                 </div>
-                <div className="is-followed">Followed</div>
+                {/* if user is followed, show the Followed button */}
+                {user.button_visible && <div className={user.is_followed ? "followed-button" : "follow-button"}>
+                    {user.is_followed ? "Following" : "Follow"}
+                </div>}
             </div>
             <video className="video" controls>
                 <source src={user.video} type="video/mp4" />
             </video>
             <div className="section socials">
-                {/* <i className="far fa-heart"></i> */}
-                <FaHeart />
-                <div className="social-tag">likes</div>
-                {/* <i className="far fa-comments-dots"></i> */}
-                <FaCommentDots />
-                <div className="social-tag">comments</div>
-                {/* <i className="far fa-share-square"></i> */}
-                <FaShareSquare />
+                <MdFavoriteBorder />
+                <div className="social-tag">{user.likes}</div>
+                <BsChatDots />
+                <div className="social-tag">{user.comments}</div>
+                <FaRegShareSquare />
             </div>
         </div>
     );

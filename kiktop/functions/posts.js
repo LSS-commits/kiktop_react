@@ -1,4 +1,4 @@
-/* connect with astra */
+// connect with astra
 const { createClient } = require("@astrajs/collections");
 
 const collection = 'ktposts';
@@ -19,11 +19,11 @@ exports.handler = async function (event, context, callback) {
 
     // get the posts
     try {
-        const response = await posts.find({});
+        const results = await posts.find({});
         
         return {
             statusCode: 200,
-            body: JSON.stringify(Object.keys(response).map((i) => response[i]))
+            body: JSON.stringify(Object.keys(results).map((i) => results[i]))
         };
 
     } catch (error) {
@@ -33,5 +33,4 @@ exports.handler = async function (event, context, callback) {
             body: JSON.stringify(error)
         };
     };
-
 }
