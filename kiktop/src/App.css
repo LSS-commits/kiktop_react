@@ -13,13 +13,13 @@ body {
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
 
-  text-align: center;
   word-wrap: break-word;
 }
 
-/* .App {
+/* TODO: ??? */
+.App {
   text-align: center;
-} */
+}
 
 h1, h2, h3, p {
   line-height: 0;
@@ -96,7 +96,10 @@ hr {
   height: 40px; /* or 140px */
   /* tiktok logo */
   /* background-image: url('https://i.imgur.com/ZZ75Unh.png'); */
-  background-image: url('https://i.imgur.com/XGyCawP.jpeg');
+  /* god knew tokyo 2020 logo */
+  /* background-image: url('https://i.imgur.com/XGyCawP.jpeg'); */
+  /* kiktop logo */
+  background-image: url('assets/kiktop_logo_comp.png');
   background-size: 129px;
   margin: 5px;
 

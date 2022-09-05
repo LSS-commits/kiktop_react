@@ -1,7 +1,10 @@
 import React from 'react';
 import MicroCard from '../components/MicroCard';
 
-const FollowersColumn = () => {
+// users = topThreeFollowing.users 
+
+const FollowersColumn = ({users}) => {
+
     return (
       <div className="followers-column">
         <div className="followers-section">
@@ -14,7 +17,12 @@ const FollowersColumn = () => {
         </div>
         <hr />
         <p>Your top accounts</p>
-        <MicroCard />
+        {users && users.map((user) => (
+          <MicroCard 
+            key={user.id}
+            user={user}
+          />
+        ))}
         <hr />
       </div>
     );

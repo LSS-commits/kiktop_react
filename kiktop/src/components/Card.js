@@ -6,9 +6,8 @@ import { FaRegShareSquare } from 'react-icons/fa';
 
 // card = posts feed
 
+// user = descendingUser
 const Card = ({ user }) => {
-    // console.log('user', user);
-
 
     return (
         <div className="card">

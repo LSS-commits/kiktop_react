@@ -1,18 +1,23 @@
 import React from 'react';
 
-// mini card = top accounts (followers column)
+// mini card = suggested accounts
 
-const MiniCard = () => {
+// user = notFollowingUser
+
+const MiniCard = ({user}) => {
     return (
         <div className="section minicard">
             <div className="section">
-                <img className="user-profile" src={''} width={'100%'} alt="user profile img"/>
+                <img className="user-profile" src={user.avatar} width={'100%'} alt="user profile img"/>
                 <div>
-                    <h3 className="bold">username</h3>
-                    <p>name</p>
+                    <h3 className="bold">{user.username}</h3>
+                    <p>{user.romanized_name}</p>
                 </div>
             </div>
-            <div className="is-followed">Followed</div>
+            {/* if user is followed, show the Followed button */}
+            {user.button_visible && <div className={user.is_followed ? "followed-button" : "follow-button"}>
+                {user.is_followed ? "Following" : "Follow"}
+            </div>}
         </div>
     )
 };

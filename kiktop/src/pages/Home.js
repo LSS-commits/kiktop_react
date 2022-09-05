@@ -9,6 +9,8 @@ const Home = () => {
   /* 1) start with no users */
   const [users, setUsers] = useState(null);
   let descendingUsers;
+  let topThreeFollowing;
+  let topThreeNotFollowing;
 
   /* 2) populate the data (create data) without visiting the page addData */
   const addData = async () => {
@@ -33,6 +35,19 @@ const Home = () => {
   if (users) {
     descendingUsers = users.sort((a,b) => a.id < b.id ? 1 : -1);
     /* NB users.reverse() would work only if ids are sorted in asc order beforehand */
+
+    /* filter users for the followers column and sort them by popularity */
+    const following = users.filter(user => user.is_followed);
+    const descendingFollowing = following.sort((a,b) => a.likes < b.likes ? 1 : -1);
+    // get top 3
+    topThreeFollowing = descendingFollowing.slice(0,3);
+
+    /* suggested accounts (accounts that are not followed) */
+    const notFollowing = users.filter(user => !user.is_followed);
+    const descendingNotFollowing = notFollowing.sort((a,b) => a.likes < b.likes ? 1 : -1);
+    // get top 3
+    topThreeNotFollowing = descendingNotFollowing.slice(0,3);
+
   }
 
 
@@ -42,7 +57,7 @@ const Home = () => {
       {/* Must render only once we get our data */}
       { descendingUsers && (
         <div className="container">
-          <FollowersColumn />
+          <FollowersColumn users={topThreeFollowing}/>
           {/* feed column */}
           <div className="feed">
             { descendingUsers.map((descendingUser) => (
@@ -58,6 +73,12 @@ const Home = () => {
               <div className="suggested">
                 <h2 className="bold">Suggested accounts</h2>
                 <div className="break" />
+                {topThreeNotFollowing.map((notFollowingUser) => (
+                  <MiniCard 
+                    key={notFollowingUser.id}
+                    user={notFollowingUser}
+                  />
+                ))}
               </div>
             </div>
           </div>
