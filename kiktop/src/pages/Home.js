@@ -8,26 +8,26 @@ const Home = () => {
 
   /* 1) start with no users */
   const [users, setUsers] = useState(null);
+
+  // instantiate for later
   let descendingUsers;
   let topThreeFollowing;
   let topThreeNotFollowing;
 
-  /* 2) populate the data (create data) without visiting the page addData */
-  const addData = async () => {
-    await axios.post('/.netlify/functions/addData');
-  }
+  /* 2) auto populate the data (create initial data) without visiting the page addInitialData */
+  const addInitialData = async () => {
+    await axios.post('/.netlify/functions/addInitialData');
+  };
 
-  /* 3) fetch/get the data without visiting the page posts */
+  /* 3) fetch/get the data without visiting the page getData */
   const fetchData = async () => {
-    const results = await axios.get('/.netlify/functions/posts');
-
-    /* set the users to use them as users later */
-    setUsers(results.data);
+    const response = await axios.get('/.netlify/functions/getData');
+    setUsers(response.data);
   }
 
   /* to perform side effects in the component = here, add the data and fetch the data */
   useEffect(() => {
-    addData();
+    addInitialData();
     fetchData();
   }, []);
 
