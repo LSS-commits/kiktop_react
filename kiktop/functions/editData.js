@@ -1,5 +1,5 @@
 const { getCollection } = require('./utils/connection');
-const { responseObj, requestObj } = require('./utils/helper');
+const { responseObj } = require('./utils/helper');
 
 exports.handler = async function (event, context) {
 
@@ -7,7 +7,8 @@ exports.handler = async function (event, context) {
     const documents = await getCollection();
 
     /* check if we get the user id and if is_followed value is changed on click on Follow/ing buton */
-    const body = requestObj(event.body);
+    // parse data before sending it to db
+    const body = JSON.parse(event.body);
     // check the terminal
     // console.log(body);
 

@@ -6,16 +6,13 @@ exports.handler = async function (event, context) {
     // access the documents
     const documents = await getCollection();
 
-    
-        
-    // create posts/users
-    try {
-        
-        // const doc = await documents.create(id, {
+    // parse data before sending it to db
+    const data = JSON.parse(event.body);
 
-        // });
-        
-        
+    // create a post
+    try {
+        const doc = await documents.create(data.id, data);
+    
         return responseObj(200);
 
     } catch (error) {

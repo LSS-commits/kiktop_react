@@ -17,8 +17,8 @@ const Card = ({ user, toggleFollow }) => {
                     <img className="user-profile" src={user.avatar} width={'100%'} alt="user profile img"/>
                     <div>
                         <div className="section">
-                            <h3 className="bold" title={user.romanized_name}>{user.name}</h3>
-                            <p className="username">@{user.username}</p>
+                            <h3 className="bold">{user.username}</h3>
+                            <p className="username" title={user.romanized_name}>{user.name}</p>
                             <p>{user.timestamp}</p>
                         </div>
                         <p>{user.caption}</p>
