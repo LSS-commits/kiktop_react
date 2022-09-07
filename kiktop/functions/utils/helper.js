@@ -8,6 +8,7 @@ const responseObj = (statusCode, data) => {
           /* Required for CORS support to work */
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*",
+        "Content-Type": "application/json",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",  
         },
         body: JSON.stringify(data)
