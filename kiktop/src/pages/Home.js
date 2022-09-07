@@ -6,32 +6,52 @@ import axios from 'axios';
 
 const Home = () => {
 
-  /* 1) start with no users */
+  /* start with no users */
   const [users, setUsers] = useState(null);
+
+  // to toggle following state of users
+  const [userToToggle, setUserToToggle] = useState(null);
 
   // instantiate for later
   let descendingUsers;
   let topThreeFollowing;
   let topThreeNotFollowing;
 
-  /* 2) auto populate the data (create initial data) without visiting the page addInitialData */
+
+  /* auto populate the data (create initial data) without visiting the page addInitialData */
   const addInitialData = async () => {
     await axios.post('/.netlify/functions/addInitialData');
   };
 
-  /* 3) fetch/get the data without visiting the page getData */
+  /* fetch/get the data without visiting the page getData */
   const fetchData = async () => {
     const response = await axios.get('/.netlify/functions/getData');
     setUsers(response.data);
   }
 
-  /* to perform side effects in the component = here, add the data and fetch the data */
+  /* update user (is_followed) */
+  if (userToToggle) {
+    const newFollowedValue = userToToggle.is_followed ? false : true;
+
+    const userData = {
+      is_followed: newFollowedValue
+    };
+
+    // update then refetch data
+     axios.put('/.netlify/functions/editData', {userId: userToToggle.id, data: userData})
+     .then(() => fetchData());
+
+     // set user to toggle to null again when update is done
+     setUserToToggle(null);
+  }
+
+  /* to perform side effects (several actions) in the component */
   useEffect(() => {
     addInitialData();
     fetchData();
   }, []);
 
-  /* 4) filter the data (sort posts by id order) */
+  /* filter the data (sort posts by id order) */
   if (users) {
     descendingUsers = users.sort((a,b) => a.id < b.id ? 1 : -1);
     /* NB users.reverse() would work only if ids are sorted in asc order beforehand */
@@ -64,6 +84,7 @@ const Home = () => {
               <Card 
                 key={descendingUser.id}
                 user={descendingUser}
+                toggleFollow={userToToggle => setUserToToggle(userToToggle)}
               />
             ))}
           </div>
@@ -77,6 +98,7 @@ const Home = () => {
                   <MiniCard 
                     key={notFollowingUser.id}
                     user={notFollowingUser}
+                    toggleFollow={userToToggle => setUserToToggle(userToToggle)}
                   />
                 ))}
               </div>

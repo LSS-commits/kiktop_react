@@ -7,7 +7,7 @@ import { FaRegShareSquare } from 'react-icons/fa';
 // card = posts feed
 
 // user = descendingUser
-const Card = ({ user }) => {
+const Card = ({ user, toggleFollow }) => {
 
     return (
         <div className="card">
@@ -25,7 +25,7 @@ const Card = ({ user }) => {
                     </div>
                 </div>
                 {/* if user is followed, show the Followed button */}
-                {user.button_visible && <div className={user.is_followed ? "followed-button" : "follow-button"}>
+                {user.button_visible && <div className={user.is_followed ? "followed-button" : "follow-button"} onClick={() => toggleFollow(user)}>
                     {user.is_followed ? "Following" : "Follow"}
                 </div>}
             </div>
