@@ -10,7 +10,6 @@ exports.handler = async function (event, context) {
     try {
         const results = await documents.find({});
         return responseObj(200, Object.keys(results).map((i) => results[i]));
-
     } catch (error) {
         console.error(error);
         return responseObj(500, error);

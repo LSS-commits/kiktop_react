@@ -15,12 +15,9 @@ exports.handler = async function (event, context) {
         for (let i = 0; i < data.length; i++) {
             await documents.create(data[i].id, data[i]);
         };
-        
         return responseObj(200);
-
     } catch (error) {
         console.error(error);
         return responseObj(500, error);
     };
-
 }

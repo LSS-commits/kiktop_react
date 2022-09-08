@@ -9,7 +9,8 @@ exports.handler = async function (event, context) {
     /* check if we get the user id and if is_followed value is changed on click on Follow/ing buton */
     // parse data before sending it to db
     const body = JSON.parse(event.body);
-    // check the terminal
+
+    // check in the terminal
     // console.log(body);
 
     // update a document

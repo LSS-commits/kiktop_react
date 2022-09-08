@@ -11,13 +11,10 @@ exports.handler = async function (event, context) {
 
     // create a post
     try {
-        const doc = await documents.create(data.id, data);
-    
+        const newDocument = await documents.create(data.id, data);
         return responseObj(200);
-
     } catch (error) {
         console.error(error);
         return responseObj(500, error);
     };
-
 }
