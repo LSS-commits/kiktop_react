@@ -2,7 +2,7 @@
 
 # perso
 .env
-netlify.toml
+lambda
 
 # dependencies
 /node_modules
