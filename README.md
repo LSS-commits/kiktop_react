@@ -1,5 +1,8 @@
-# kiktop_react
+# Kiktop App
 
-Build a basic clone of the Tik Tok app in React with a Cassandra database.
+TikTok App clone (desktop) in React with database using: 
+- [Stargate REST API](https://stargate.io/) 
+- [DataStax Astra database](https://www.datastax.com/)
+- [Netlify (Jamstack)](https://www.netlify.com/jamstack/)
 
-[Tuto by Ania Kubow](https://www.youtube.com/watch?v=IATOicvih5A)
+Source code by Ania Kubow: https://github.com/kubowania/stargate-tik-tok
