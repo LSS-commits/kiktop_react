@@ -29,7 +29,7 @@ const Home = () => {
     setUsers(response.data);
   }
 
-  /* update user (is_followed) */
+  /* update user (follow/unfollow) */
   if (userToToggle) {
     const newFollowedValue = userToToggle.is_followed ? false : true;
 
@@ -67,7 +67,6 @@ const Home = () => {
     const descendingNotFollowing = notFollowing.sort((a,b) => a.likes < b.likes ? 1 : -1);
     // get top 3
     topThreeNotFollowing = descendingNotFollowing.slice(0,3);
-
   }
 
 
@@ -107,7 +106,7 @@ const Home = () => {
         </div>
       )}  
     </>
-  );
+  )
 };
 
 export default Home;

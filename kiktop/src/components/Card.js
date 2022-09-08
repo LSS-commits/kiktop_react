@@ -2,13 +2,11 @@ import React from 'react';
 import { MdFavoriteBorder} from 'react-icons/md';
 import { BsChatDots } from 'react-icons/bs';
 import { FaRegShareSquare } from 'react-icons/fa';
-// import { IconContext } from 'react-icons';
 
 // card = posts feed
 
 // user = descendingUser
 const Card = ({ user, toggleFollow }) => {
-
     return (
         <div className="card">
             <div className="break" />
@@ -19,7 +17,6 @@ const Card = ({ user, toggleFollow }) => {
                         <div className="section">
                             <h3 className="bold">{user.username}</h3>
                             <p className="username" title={user.romanized_name}>{user.name}</p>
-                            <p>{user.timestamp}</p>
                         </div>
                         <p>{user.caption}</p>
                     </div>
@@ -40,7 +37,7 @@ const Card = ({ user, toggleFollow }) => {
                 <FaRegShareSquare />
             </div>
         </div>
-    );
+    )
 };
 
 export default Card;

@@ -15,7 +15,7 @@ const App = () => {
         <Route path='/' component={Home}/>
       </Switch>
     </HashRouter>
-  );
+  )
 };
 
 export default App;

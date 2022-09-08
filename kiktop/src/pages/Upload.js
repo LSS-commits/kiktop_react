@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import faker from 'faker';
 
+// TODO: this creates a new user/post, change db structure to only add posts to a preexisting user
+
 const Upload = () => {
 
   // for the personal profile data
@@ -19,36 +21,34 @@ const Upload = () => {
   const [caption, setCaption] = useState(null);
 
 
-  // TODO: this creates a new user/post, change db structure to only add posts to a preexisting user
-  const data = {
-    id: id,
-    name: name,
-    romanized_name: romanized_name,
-    username: username,
-    avatar: avatar,
-    is_followed: false,
-    video: video,
-    caption: caption,
-    likes: 0,
-    comments: 0,
-    timestamp: timestamp,
-    button_visible: false
-  };
-
   // submit new "post"
   const handleSubmit = async (event) => {
     event.preventDefault();
     // TODO: add preview before upload
 
+    const data = {
+      id: id,
+      name: name,
+      romanized_name: romanized_name,
+      username: username,
+      avatar: avatar,
+      is_followed: false,
+      video: video,
+      caption: caption,
+      likes: 0,
+      comments: 0,
+      timestamp: timestamp,
+      button_visible: false
+    };
+
     await axios.post('/.netlify/functions/addData', data)
     .then((response) => {
+      // TODO: add redirection to home page + success notification
       console.log(response);
     })
     .catch((error) => {
       console.error(error);
     });
-
-    // TODO: add redirection to home page + success notification
 
   };
 
@@ -77,7 +77,7 @@ const Upload = () => {
         </form>
       </div>
     </div>
-  );
+  )
 };
   
 export default Upload;
