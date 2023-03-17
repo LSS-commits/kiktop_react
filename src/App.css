@@ -1,38 +1,294 @@
+/***** GLOBAL STYLES *****/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
+:root {
+  --color1: #737373; /* grey */
+  --color2: #fe2c55; /* red */
+  --color3: #E3E3E4; /* dirty white */
+  --color4: #7FFFD4; /* aquamarine green */
+  --color5: rgb(22,24,35,0.03); /* black */
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+
+  word-wrap: break-word;
+}
+
+/* TODO: ??? */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, p {
+  line-height: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2, h3 {
+  font-weight: 300;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+  font-size: 60px; 
+}
+
+h2 {
+  font-size: 20px; 
+}
+
+h3 {
+  font-size: 15px; 
+}
+
+p {
+  color: var(--color1);
+  font-size: 12px;
+}
+
+hr {
+  display: block; 
+  height: 1px;
+  border: 0; 
+  border-top: 1px solid var(--color3);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.red {
+  color: var(--color2);
+}
+
+/* to add space between div elements instead of handling margin and padding */
+.break {
+  height: 10px;
+}
+
+/* TODO: remove flex direct and margin? */
+.section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  display: flex;
+  /* TODO: remove flex d */
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* HEADER COMPONENT */
+.header {
+  height: 60px;
+  width: 100%;
+  border-bottom: solid 1px var(--color3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 129px;
+  height: 40px; /* or 140px */
+  /* tiktok logo */
+  /* background-image: url('https://i.imgur.com/ZZ75Unh.png'); */
+  /* god knew tokyo 2020 logo */
+  /* background-image: url('https://i.imgur.com/XGyCawP.jpeg'); */
+  /* kiktop logo */
+  background-image: url('assets/kiktop_logo_comp.png');
+  background-size: 129px;
+  margin: 5px;
+
+  /* filter: invert(); */
+}
+
+.upload-logo {
+  width: 30px;
+  height: 25px;
+  margin-top: 15px;
+  background-image: url('https://i.imgur.com/0MtQ9RF.png');
+  background-size: 30px;
+}
+
+.personal {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color1);
+  border-radius: 20px;
+  margin: 5px 20px 0 20px;
+}
+
+
+/* HOME PAGE */
+
+/* suggested accounts */
+.suggested-box {
+  min-width: 320px;
+  height: 600px;
+  padding: 10px;
+}
+
+.suggested {
+  width: 280px;
+  height: 350px;
+  border: 1px solid var(--color3);
+  border-radius: 10px;
+  padding: 20px 15px;
+}
+
+/* FOLLOWERS COLUMN COMPONENT */
+.followers-column {
+  min-width: 230px;
+  height: 600px;
+  padding: 10px;
+}
+
+.followers-section {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0 30px 0;
+}
+
+.home-button {
+  width: 30px;
+  height: 29px;
+  background-image: url('https://i.imgur.com/Q582Dp0.png');
+  background-size: 30px;
+  margin-right: 15px;
+}
+
+.following {
+  width: 30px;
+  height: 29px;
+  background-image: url('https://i.imgur.com/Aq7L3jv.png');
+  background-size: 30px;
+  margin-right: 15px;
+}
+
+
+
+
+/* feed */
+/* .feed {
+  background-color: var(--color3);
+  width: 500px;
+} */
+
+
+/* UPLOAD PAGE */
+/* TODO: check style of this component */
+.upload-page {
+  margin-left: 30px;
+}
+
+.image-upload {
+  width: 400px;
+  height: 230px;
+  background-color: var(--color5);
+  border-radius: 10px;
+}
+
+.input-section {
+  margin: 10px;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-section {
+  margin-left: 20px;
+  margin-top: 60px;
+}
+
+label {
+  font-size: 40px;
+  line-height: 0; 
+}
+
+input {
+  height: 45px;
+  width: 500px;
+  font-size: 35px;
+  margin-top: -20px;
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  float: right;
+}
+
+/* CARD COMPONENTS */
+.user-profile {
+  width: 80px; /* or 50px */
+  height: 80px; /* or 50px */
+  background-color: var(--color1);
+  border-radius: 50%; /* or 25px */
+  margin-right: 15px;
+}
+
+/* card component */
+.card {
+  border-bottom: 1px solid var(--color3);
+  width: 500px;
+  height: 600px;
+}
+.user-info {
+  display: flex;
+  flex-direction: row;
+  width: 412px;
+}
+.username {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.video {
+  width: 270px;
+  border-radius: 15px;
+  margin-left: 70px;
+}
+.social-tag {
+  margin: 0 20px 0 5px;
+}
+.socials {
+  margin-left: 70px;
+}
+.follow-button {
+  border: 1px solid var(--color2);
+  border-radius: 3px;
+  width: 88px;
+  height: 16px;
+  color: var(--color2);
+  font-weight: 600;
+  padding: 2px 0 3px;
+  text-align: center;
+  font-size: 14px;
+
+  cursor: pointer;
+}
+.followed-button {
+  border: 1px solid var(--color3);
+  border-radius: 3px;
+  width: 88px;
+  height: 16px;
+  font-weight: 600;
+  padding: 2px 0 3px;
+  text-align: center;
+  font-size: 14px;
+
+  cursor: pointer;
+}
+/* minicard component */
+.minicard {
+  justify-content: space-between;
+}
+
+/* microcard component */
+.minicard, .microcard {
+  margin: 10px 0 0 0;
 }

@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Header from './components/Header';
+import Home from "./pages/Home";
+import Upload from "./pages/Upload";
+
 import './App.css';
 
-function App() {
+const App = () => {
+
+  // redirect to home page if no route is matched
+  const Nomatch = () => {
+    return <Navigate to="/" />
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header></Header>
+      <Routes>
+        <Route path="/upload" element={<Upload/>}/>
+        <Route exact path="/" element={<Home/>} />
+        <Route path="*" element={
+          <Nomatch>
+            <Home />
+          </Nomatch>
+        }/>
+      </Routes>
+    </Router>
   );
 }
 
