@@ -7,7 +7,7 @@ import './App.css';
 
 const App = () => {
 
-  // redirect to home page if no route is matched
+  // TODO: redirect to home page if no route is matched
   const Nomatch = () => {
     return <Navigate to="/" />
   }
@@ -18,11 +18,11 @@ const App = () => {
       <Routes>
         <Route path="/upload" element={<Upload/>}/>
         <Route exact path="/" element={<Home/>} />
-        <Route path="*" element={
+        {/* <Route path="*" element={
           <Nomatch>
             <Home />
           </Nomatch>
-        }/>
+        }/> */}
       </Routes>
     </Router>
   );
