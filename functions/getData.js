@@ -9,9 +9,10 @@ exports.handler = async function (event, context, callback) {
     // get the documents
     try {
         const response = await documents.find({});
-        return responseObj(200, response);
+        // destructurate the data (get rid of the object keys)
+        return responseObj(200, Object.keys(response).map((i) => response[i]));
     } catch (error) {
         console.error(error);
         return responseObj(500, error);
     } 
-}
+};

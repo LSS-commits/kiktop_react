@@ -7,7 +7,7 @@ import './App.css';
 
 const App = () => {
 
-  // TODO: redirect to home page if no route is matched
+  // TODO: redirect to home page if no route is matched BUT pb with netlify api routes
   const Nomatch = () => {
     return <Navigate to="/" />
   }
