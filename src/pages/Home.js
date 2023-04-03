@@ -7,10 +7,15 @@ import axiosClient from '../shared/axiosClient';
 const Home = () => {
   // start with no users
   const [users, setUsers] = useState(null);
-// instantiate for later use, filter users
-let descendingUsers;
-let topThreeFollowing;
-let topThreeNotFollowing;
+
+  // instantiate for later use, to filter users
+  let descendingUsers;
+  let topThreeFollowing;
+  let topThreeNotFollowing;
+
+  // to toggle following state of users
+  const [userToToggle, setUserToToggle] = useState(null);
+ 
 
   /* auto populate the data (create initial data) without visiting the page addInitialData */
   const addInitialData = async () => {
@@ -21,6 +26,22 @@ let topThreeNotFollowing;
   const fetchData = async () => {
     const results = await axiosClient.get('/getData');
     setUsers(results.data)
+  }
+
+   /* update user following state on click on follow/unfollow button */
+   if (userToToggle) {
+    const newFollowedValue = userToToggle.is_followed ? false : true;
+
+    const userData = {
+      is_followed: newFollowedValue
+    };
+
+    // update then refetch data
+     axiosClient.put('/editData', {userId: userToToggle.id, data: userData})
+     .then(() => fetchData());
+
+     // set user to toggle to null again when update is done
+     setUserToToggle(null);
   }
 
   // to add and fetch data only once if no change has been made to the component 
@@ -60,6 +81,7 @@ let topThreeNotFollowing;
             <Card
             key={descendingUser.id}
             user={descendingUser}
+            toggleFollow={userToToggle => setUserToToggle(userToToggle)}
             />
             ))}
           </div>
@@ -73,6 +95,7 @@ let topThreeNotFollowing;
                   <MiniCard
                   key={notFollowingUser.id}
                   user={notFollowingUser}
+                  toggleFollow={userToToggle => setUserToToggle(userToToggle)}
                   />
                 ))}
               </div>
