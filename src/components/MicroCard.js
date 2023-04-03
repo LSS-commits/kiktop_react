@@ -1,4 +1,4 @@
-// micro card = top accounts
+// micro card = top 3 of followed accounts 
 const MicroCard = ({user}) => {
     return (
         <div className="section microcard">

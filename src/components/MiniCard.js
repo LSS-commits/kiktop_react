@@ -6,7 +6,7 @@ const MiniCard = ({user, toggleFollow}) => {
         <div className="section minicard">
             <div className="section">
                 <img className="user-profile" src={user.avatar} width={'100%'} alt="user profile img"/>
-                <div>
+                <div className="user-title">
                     <h3 className="bold">{user.username}</h3>
                     <p>{user.romanized_name}</p>
                 </div>
