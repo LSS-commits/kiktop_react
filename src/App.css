@@ -12,14 +12,10 @@
 *{
   font-family: 'Quicksand', sans-serif
 }
+
 body {
   font-weight: 300;
   word-wrap: break-word
-}
-
-/* TODO: ??? */
-.App {
-  text-align: center
 }
 
 h1, h2, h3, p {
@@ -67,7 +63,6 @@ hr {
   height: 10px
 }
 
-/* TODO: remove flex direct and margin? */
 .section {
   display: flex;
   flex-direction: row;
