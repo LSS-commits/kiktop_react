@@ -6,11 +6,13 @@
   --color2: #fe2c55; /* red */
   --color3: #E3E3E4; /* dirty white */
   --color4: #7FFFD4; /* aquamarine green */
-  --color5: rgb(22,24,35,0.03) /* black */
+  --color5: rgba(22, 24, 35, 0.03) /* black */
 }
 
+*{
+  font-family: 'Quicksand', sans-serif
+}
 body {
-  font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   word-wrap: break-word
 }
@@ -74,7 +76,6 @@ hr {
 
 .container {
   display: flex;
-  /* TODO: remove flex d */
   flex-direction: row;
   justify-content: space-between
 }
@@ -170,9 +171,6 @@ hr {
   margin-right: 15px
 }
 
-
-
-
 /* feed */
 /* .feed {
   background-color: var(--color3);
@@ -181,47 +179,67 @@ hr {
 
 
 /* UPLOAD PAGE */
-/* TODO: check style of this component */
-.upload-page {
-  margin-left: 30px
+.upload {
+  margin: 0 20px
 }
 
-.image-upload {
-  width: 400px;
-  height: 230px;
+.upload-layout{
+  margin-top: 20px
+}
+
+.upload-preview{
   background-color: var(--color5);
-  border-radius: 10px
-}
-
-.input-section {
-  margin: 10px;
-  width: 700px;
+  border-radius: 10px;
+  margin-right: 20px;
+  flex: 30%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between
+  justify-content: center;
+  align-items: center
 }
 
-.form-section {
-  margin-left: 20px;
-  margin-top: 60px
+.upload-form{
+  flex: 70%;
+
+  display: flex;
+  flex-direction: column
 }
 
-label {
-  font-size: 40px;
-  line-height: 0
+@media (max-width: 800px) {
+  .upload-layout{
+      flex-wrap: wrap;
+  }
+  .upload-preview{
+      margin-right: 0;
+      margin-bottom: 20px
+  }
+  .upload-preview, .upload-form{
+      flex: 100%
+  }
 }
 
-input {
-  height: 45px;
-  width: 500px;
-  font-size: 35px;
-  margin-top: -20px
+.upload-form input{
+  margin: 10px 0;
+  font-size: 2rem;
+  border: 1px solid rgba(22, 24, 35, 0.2);
+  border-radius: 3px;
 }
 
-button {
-  height: 30px;
-  width: 100px;
-  float: right
+.upload-form input::placeholder {
+  color: rgba(22, 24, 35, 0.4);
+  opacity: .7
+}
+
+.upload-form button{
+  width: 5rem;
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 14px;
+  /* to position button at the right/end of the form */
+  margin-left: auto;
+  cursor: pointer
 }
 
 /* CARD COMPONENTS */

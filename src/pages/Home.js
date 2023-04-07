@@ -28,8 +28,8 @@ const Home = () => {
     setUsers(results.data)
   }
 
-   /* update user following state on click on follow/unfollow button */
-   if (userToToggle) {
+  /* update user following state on click on follow/unfollow button */
+  if (userToToggle) {
     const newFollowedValue = userToToggle.is_followed ? false : true;
 
     const userData = {
@@ -44,14 +44,18 @@ const Home = () => {
      setUserToToggle(null);
   }
 
-  // to add and fetch data only once if no change has been made to the component 
+  /* NB: useEffect = to perform actions/effects after the component has been rendered 
+  1) to perform an action only if a state/prop has changed, put it as a variable inside the dependency array 
+  2) to perform a side effect only after the first render of the component (ex when fetching data from an API) = empty array as a dependency
+  */
+  // add and fetch data once the component has been rendered
   useEffect(() => {
     addInitialData();
     fetchData();
   }, []);
 
-    /* filter the data (sort by id order) */
-    if (users) {
+  /* filter the data (sort by id order) */
+  if (users) {
       // sort by desc order
       descendingUsers = users.sort((a,b) => a.id < b.id ? 1 : -1);
       /* NB users.reverse() would work only if ids were sorted in asc order beforehand */
@@ -67,7 +71,7 @@ const Home = () => {
       const descendingNotFollowing = notFollowing.sort((a,b) => a.likes < b.likes ? 1 : -1);
       // get top 3
       topThreeNotFollowing = descendingNotFollowing.slice(0,3);
-    }
+  }
 
   return (
     <>
