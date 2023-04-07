@@ -6,7 +6,7 @@
 ![Home Page](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/homepage.PNG?raw=true)
 
 ## Upload page
-![Upload Page](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage?raw=true)
+![Upload Page](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage.PNG?raw=true)
 
 
 TikTok App clone (desktop) using React. 
