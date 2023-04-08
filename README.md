@@ -6,6 +6,8 @@ TikTok App clone (desktop) using React and AstraDB.
 
 ## Upload page
 ![Upload Page](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage.PNG?raw=true)
+![Upload Page - Preview Upload](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage_preview.PNG?raw=true)
+![Upload Page - Responsive](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage_responsive.PNG?raw=true)
 
 ### Tools
 Real database using: 
@@ -19,5 +21,6 @@ Source code by [Ania Kubow](https://github.com/kubowania/stargate-tik-tok)
 ### Improvements
 - Custom logo
 - Upload page UI
+- Preview post before upload and upload notification
 - Page Redirection
 - Functions: code refactoring (connection) and data handler
