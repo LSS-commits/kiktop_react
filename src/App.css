@@ -66,6 +66,7 @@ hr {
 .section {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 0
 }
 
@@ -121,6 +122,14 @@ hr {
 
 
 /* HOME PAGE */
+/* feed */
+/* .feed {
+  background-color: var(--color3);
+  width: 500px
+} */
+.feed hr {
+  margin-top: 20px
+}
 
 /* suggested accounts */
 .suggested-box {
@@ -166,16 +175,13 @@ hr {
   margin-right: 15px
 }
 
-/* feed */
-/* .feed {
-  background-color: var(--color3);
-  width: 500px
-} */
-
-
 /* UPLOAD PAGE */
 .upload {
   margin: 0 20px
+}
+.upload h1 {
+  line-height: normal;
+  margin: 0;
 }
 
 .upload-layout{
@@ -188,8 +194,12 @@ hr {
   margin-right: 20px;
   flex: 30%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center
+}
+.changeBackground{
+  background-color: white;
 }
 
 .upload-form{
@@ -237,6 +247,41 @@ hr {
   cursor: pointer
 }
 
+.preview-layout{
+  max-width: 300px;
+}
+
+.preview-caption{
+  font-size: 16px;
+  word-break: break-all;
+  /* word-wrap: break-word; */
+  line-height: normal;
+  color: black;
+  margin: 10px
+}
+
+.preview-video{
+  width: 270px;
+  margin: 10px;
+  border-radius: 15px
+}
+.upload-preview span{
+  margin-top: 20px;
+}
+
+.upload-preview-button{
+  margin: 20px 0 20px 0;
+  width: 10rem;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid var(--color2);
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--color2);
+  cursor: pointer
+}
+
 /* CARD COMPONENTS */
 .user-profile {
   width: 80px; /* or 50px */
@@ -254,7 +299,6 @@ hr {
 
 /* card component */
 .card {
-  border-bottom: 1px solid var(--color3);
   width: 500px;
   height: 600px
 }
@@ -262,6 +306,10 @@ hr {
   display: flex;
   flex-direction: row;
   width: 412px
+}
+.user-info-caption {
+  line-height: normal;
+  margin: 0
 }
 .username {
   margin-left: 10px;
@@ -276,7 +324,7 @@ hr {
   margin: 0 20px 0 5px
 }
 .socials {
-  margin-left: 70px
+  margin: 10px 0 10px 70px
 }
 .follow-button {
   border: 1px solid var(--color2);

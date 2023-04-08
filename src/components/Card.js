@@ -17,7 +17,7 @@ const Card = ({ user, toggleFollow }) => {
                             <h3 className="bold">{user.username}</h3>
                             <p className="username" title={user.romanized_name}>{user.name}</p>
                         </div>
-                        <p>{user.caption}</p>
+                        <p className="user-info-caption">{user.caption}</p>
                     </div>
                 </div>
                 {/* if user is followed, show the Followed button */}

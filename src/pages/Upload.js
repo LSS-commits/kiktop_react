@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { useState } from 'react';
 import axiosClient from '../shared/axiosClient';
+import { useNavigate } from 'react-router-dom';
 
 
 // TODO: this creates a new user/post, change db structure to only add posts to a preexisting user
@@ -21,11 +22,39 @@ const Upload = () => {
   const [video, setVideo] = useState(null);
   const [caption, setCaption] = useState(null);
 
+  // for notification
+  const [notification, setNotification] = useState({
+    state: false,
+    message: ""
+  });
+
+  // for redirection
+  const navigate = useNavigate();
+  
+  // preview upload
+  const [videoPreview, setVideoPreview] = useState(null);
+  const [captionPreview, setCaptionPreview] = useState(null);
+  
+  const handlePreview = async (event) => {
+    event.preventDefault();
+
+    // remove previous video src if user picks a new video to preview
+    await setCaptionPreview(null);
+    await setVideoPreview(null);
+
+    // if video and caption are provided, create preview
+    if (caption && video) {
+      setCaptionPreview(caption);
+      setVideoPreview(video);
+    } else {
+      setCaptionPreview(null);
+      setVideoPreview(null);
+    }
+  }
+
   // submit new upload
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // TODO: add preview before upload
 
     const data = {
       id: id,
@@ -45,12 +74,17 @@ const Upload = () => {
     // create new document
     await axiosClient.post('/addData', data)
     .then((response) => {
-      // TODO: add redirection to home page + success notification
+      // TODO: success notification + add redirection to home page
+      setNotification({...notification, state: true, message: "Your upload was successful! Back to your posts..."});
+      setTimeout(() => navigate("/"), 4000);
       console.log(response);
     })
     .catch((error) => {
+      // error notification
+      setNotification({...notification, state: true, message: "Oops, something went wrong... Please retry later"});
       console.error(error);
     });
+    
   }
 
   return (
@@ -60,14 +94,25 @@ const Upload = () => {
         <h1>Upload video</h1>
         <p>This video will be published to @{username}</p>
         <div className="container upload-layout">
-            <div className="upload-preview">
-                <span>Upload preview</span>
-            </div>
-            <form className='upload-form' onSubmit={handleSubmit}>
-            <input name="caption" placeholder="Caption" onChange={(event) => setCaption(event.target.value)}/>
-            <input name="video" placeholder="Video Url" onChange={(event) => setVideo(event.target.value)}/>
-            <button>Post</button>
-            </form>
+          <div className={videoPreview ? "upload-preview changeBackground" : "upload-preview"}> 
+            {videoPreview ? 
+            <div className="preview-layout">
+              <p className="preview-caption">{captionPreview}</p>
+              <video className="preview-video" controls>
+                <source src={videoPreview} type="video/mp4"/>
+                Your browser does not support HTML5 video.
+              </video> 
+            </div> :
+            <span>Upload preview</span>
+            }
+            <button className="upload-preview-button" onClick={handlePreview}>Preview post</button>
+          </div>
+          <form className='upload-form' onSubmit={handleSubmit}>
+          <input name="caption" placeholder="Caption" onChange={(event) => setCaption(event.target.value)}/>
+          <input name="video" placeholder="Video Url" onChange={(event) => setVideo(event.target.value)}/>
+          <button>Post</button>
+          {notification.state === true && <p style={{"fontSize": "20px", "fontWeight": "600","color": "#66BB6A"}}>{notification.message}</p>}
+          </form>
         </div>
     </div>
     </>

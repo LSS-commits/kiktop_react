@@ -57,8 +57,11 @@ const Home = () => {
   /* filter the data (sort by id order) */
   if (users) {
       // sort by desc order
-      descendingUsers = users.sort((a,b) => a.id < b.id ? 1 : -1);
+      // descendingUsers = users.sort((a,b) => a.id < b.id ? 1 : -1);
       /* NB users.reverse() would work only if ids were sorted in asc order beforehand */
+
+      // OR sort by timestamp instead of id
+      descendingUsers= users.sort((a,b) => a.timestamp < b.timestamp ? 1 : -1);
 
       /* followers column = filter users (only followed users) and sort them by popularity */
       const following = users.filter(user => user.is_followed);
@@ -82,11 +85,14 @@ const Home = () => {
           {/* feed column */}
           <div className='feed'>
             { descendingUsers.map((descendingUser) => (
+            <>
             <Card
             key={descendingUser.id}
             user={descendingUser}
             toggleFollow={userToToggle => setUserToToggle(userToToggle)}
             />
+            <hr/>
+            </>  
             ))}
           </div>
           {/* suggested column */}
