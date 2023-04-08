@@ -15,3 +15,9 @@ Real database using:
 - [Netlify (Jamstack)](https://www.netlify.com/jamstack/)
 
 Source code by [Ania Kubow](https://github.com/kubowania/stargate-tik-tok)
+
+### Improvements
+- Custom logo
+- Upload page UI
+- Page Redirection
+- Functions: code refactoring (connection) and data handler
