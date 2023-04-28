@@ -7,6 +7,8 @@ TikTok App clone (desktop) using React and AstraDB.
 ## Upload page
 ![Upload Page](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage.PNG?raw=true)
 ![Upload Page - Preview Upload](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage_preview.PNG?raw=true)
+
+## Responsive
 ![Upload Page - Responsive](https://github.com/LSS-commits/kiktop_react/blob/main/src/assets/uploadpage_responsive.PNG?raw=true)
 
 ### Tools
